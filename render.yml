@@ -1,0 +1,6 @@
+services:
+  - name: adhan-reminder
+    type: worker
+    env: node
+    buildCommand: "npm install && npx tsc -b"
+    startCommand: "npm start"
