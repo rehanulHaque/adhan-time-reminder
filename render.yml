@@ -1,6 +1,19 @@
 services:
-  - name: adhan-reminder
-    type: worker
-    env: node
-    buildCommand: "npm install && npx tsc -b"
-    startCommand: "npm start"
+- type: worker
+  name: adhan-reminder
+  runtime: node
+  repo: https://github.com/rehanulHaque/adhan-time-reminder
+  plan: free
+  envVars:
+  - key: LAT
+    sync: false
+  - key: LONG
+    sync: false
+  - key: EMAIL_PASSWORD
+    sync: false
+  - key: EMAIL_USER
+    sync: false
+  region: oregon
+  buildCommand: npm install && npx tsc -b
+  startCommand: npm start
+version: "1"
